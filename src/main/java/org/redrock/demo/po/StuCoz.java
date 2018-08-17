@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class StuCoz {
-    Integer sid;
-    Integer cid;
+    private Integer sid;
+    private Integer cid;
 }

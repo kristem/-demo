@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Student {
-    Integer sId;
-    Integer stuId;
-    String stuName;
+    private Integer sId;
+    private Integer stuId;
+    private String stuName;
 
 }
