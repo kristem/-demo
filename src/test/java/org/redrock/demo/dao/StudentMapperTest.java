@@ -21,7 +21,7 @@ public class StudentMapperTest {
     public void before() {
      student = new Student();
      student.setSId(3);
-     student.setStuName("杜华");
+     student.setStuName("dhsl");
      student.setStuId(80);
     }
 
@@ -29,7 +29,7 @@ public class StudentMapperTest {
     public void insertCourse() {
         Student student1 = new Student();
         student1.setStuId(20);
-        student1.setStuName("王丛");
+        student1.setStuName("wcsl");
         boolean flag = studentMapper.insertStudent(student1);
         assertEquals(true,flag);
     }
@@ -37,13 +37,13 @@ public class StudentMapperTest {
     @Test
     public void findStudentById() {
         String name = studentMapper.findStuById(100);
-        assertEquals("孟美骑",name);
+        assertEquals("mmp",name);
     }
 
     @Test
     public void findStudentByName() {
-        int id = studentMapper.findStuByName("过瘾");
-        assertEquals(102, id);
+        int id = studentMapper.findStuByName("wj");
+        assertEquals(103, id);
     }
 
     @Test

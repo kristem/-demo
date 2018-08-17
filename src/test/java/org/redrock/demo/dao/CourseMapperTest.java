@@ -21,7 +21,7 @@ public class CourseMapperTest {
     public void before() {
         course = new Course();
         course.setCozId(50);
-        course.setCozName("声乐");
+        course.setCozName("shengyue");
         course.setCId(1);
     }
 
@@ -29,7 +29,7 @@ public class CourseMapperTest {
     public void insertCourse() {
         Course course1 = new Course();
         course1.setCozId(30);
-        course1.setCozName("商业鬼才");
+        course1.setCozName("yhsl");
         boolean flag = courseMapper.insertCourse(course1);
         assertEquals(true,flag);
     }
@@ -37,13 +37,13 @@ public class CourseMapperTest {
     @Test
     public void getCozByCozId() {
         String name = courseMapper.getCozByCozId(1);
-        assertEquals("舞蹈",name);
+        assertEquals("wudao",name);
     }
 
     @Test
     public void getCozByCozName() {
-        int id = courseMapper.getCozByCozName("舞蹈");
-        assertEquals(1, id);
+        int id = courseMapper.getCozByCozName("yanjiang");
+        assertEquals(3, id);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class CourseMapperTest {
 
     @Test
     public void deleteCourse() {
-        boolean flag = courseMapper.deleteCourse(1);
+        boolean flag = courseMapper.deleteCourse(2);
         assertEquals(true, flag);
     }
 
