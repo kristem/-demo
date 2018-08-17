@@ -21,7 +21,8 @@ public class CourseMapperTest {
     public void before() {
         course = new Course();
         course.setCozId(50);
-
+        course.setCozName("声乐");
+        course.setCId(1);
     }
 
     @Test
@@ -40,9 +41,21 @@ public class CourseMapperTest {
     }
 
     @Test
-    public void updateCourse() {
-        boolean flag = courseMapper.updateCourse(course);
+    public void getCozByCozName() {
+        int id = courseMapper.getCozByCozName("舞蹈");
+        assertEquals(1, id);
     }
 
+    @Test
+    public void updateCourse() {
+        boolean flag = courseMapper.updateCourse(course);
+        assertEquals(true, flag);
+    }
+
+    @Test
+    public void deleteCourse() {
+        boolean flag = courseMapper.deleteCourse(1);
+        assertEquals(true, flag);
+    }
 
 }

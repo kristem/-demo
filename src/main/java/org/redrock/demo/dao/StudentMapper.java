@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface StudentMapper {
 
-    Student findStuById (@Param("id")Integer id);
+    String findStuById (Integer id);
 
-    Student findStuByName (@Param("name")String name);
+    Integer findStuByName (String name);
 
     boolean  insertStudent(Student student);
 
