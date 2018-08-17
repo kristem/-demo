@@ -1,4 +1,4 @@
-package org.redrock.demo.dao;
-
-public interface TchCozMapper {
-}
+//package org.redrock.demo.dao;
+//
+//public interface TchCozMapper {
+//}
