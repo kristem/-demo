@@ -2,8 +2,8 @@ language: java
 
 notifications:
   email:
-  recipients:
-    - 825411505@qq.com
-    - 1353236065@qq.com
+    recipients:
+      - 825411505@qq.com
+      - 1353236065@qq.com
   on_success: change
   on_failure: always
