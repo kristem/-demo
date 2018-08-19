@@ -1,21 +1,16 @@
 package org.redrock.demo.dao;
 
-import org.apache.ibatis.annotations.*;
 import org.redrock.demo.po.Course;
-import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper
+
 public interface CourseMapper {
-    @Insert("INSERT course(coz_id,coz_name) VALUE (#{id},#{name})")
-    boolean insertCourse(@Param("id") Integer id , @Param("name") String name);
+    boolean insertCourse(Course course);
 
-    @Delete("DELETE from course where id = #{id}  ")
-    boolean deleteCourse(@Param("id")Integer id);
+    String getCozByCozId(Integer id);
 
-    @Update("UPDATE course set coz_id = #{id},coz_name = #{name} ")
-    boolean updateCourse(Integer id , String name);
+    Integer getCozByCozName(String name);
 
-    @Select("SELECT * from course where coz_id = #{id}")
-    Course getCozByCozId(@Param("id") Integer id);
+    boolean deleteCourse(Integer id);
+
+    boolean updateCourse(Course course);
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.redrock.demo.dao.CourseMapper">
+
+    <resultMap id="course" type="org.redrock.demo.po.Course">
+    <id property="cId" column="cid"/>
+    <result property="cozId" column="coz_id"/>
+    <result property="cozName" column="coz_name"/>
+    </resultMap>
+
+    <select id="getCozByCozId" parameterType="Integer" resultType="String">
+        SELECT coz_name
+        FROM course
+        WHERE coz_id = #{cozId}
+    </select>
+
+    <select id="getCozByCozName" parameterType="String" resultType="Integer">
+        SELECT coz_id
+        FROM course
+        WHERE coz_name = #{cozName}
+    </select>
+
+    <insert id="insertCourse" parameterType="org.redrock.demo.po.Course" keyProperty="cid" useGeneratedKeys="true">
+        INSERT INTO course(coz_id,coz_name)
+        VALUES (#{cozId},#{cozName})
+    </insert>
+
+    <delete id="deleteCourse" parameterType="Integer">
+        DELETE
+        FROM course
+        WHERE coz_id = #{cozId}
+    </delete>
+
+    <update id="updateCourse" parameterType="org.redrock.demo.po.Course">
+        UPDATE course
+        <set>
+            <if test="cozName != null">
+                coz_name = #{cozName},
+            </if>
+            <if test="cozId != null">
+                coz_id = #{cozId}
+            </if>
+        </set>
+        WHERE cid = #{cId}
+    </update>
+</mapper>

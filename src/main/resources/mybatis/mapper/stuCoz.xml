@@ -8,4 +8,10 @@
         FROM stu_coz
         where cid = #{cid}
     </select>
+
+    <insert id="insertStuCoz" parameterType="org.redrock.demo.po.StuCoz">
+        INSERT INTO stu_coz(sid, cid)
+        VALUES (#{sId},#{cId})
+    </insert>
+
 </mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.redrock.demo.dao.StudentMapper">
+    <resultMap id="student" type="org.redrock.demo.po.Student">
+        <id property="sId" column="sid"/>
+        <result property="stuId" column="stu_id"/>
+        <result property="stuName" column="stu_name"/>
+    </resultMap>
+
+    <select id="findStuById" parameterType="Integer" resultType="String">
+        SELECT  stu_name
+        FROM student
+        WHERE stu_id = #{stuId}
+    </select>
+
+    <select id="findStuByName" parameterType="String" resultType="Integer">
+        SELECT  stu_id
+        FROM student
+        WHERE stu_name = #{stuName}
+    </select>
+
+    <insert id="insertStudent" parameterType="org.redrock.demo.po.Student" keyProperty="cid" useGeneratedKeys="true">
+        INSERT INTO student(stu_id,stu_name)
+        VALUES (#{stuId},#{stuName})
+    </insert>
+
+    <delete id="deleteStudent" parameterType="Integer">
+        DELETE
+        FROM student
+        WHERE stu_id = #{stuId}
+    </delete>
+
+    <update id="updateStudent" parameterType="org.redrock.demo.po.Student">
+        UPDATE student
+        <set>
+            <if test="stuName != null">
+                stu_name = #{stuName},
+            </if>
+            <if test="stuId != null">
+                stu_id = #{stuId}
+            </if>
+        </set>
+        WHERE sid = #{sId}
+    </update>
+
+
+</mapper>

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Course {
-    Integer id;
-    String name;
+    private Integer cId;
+    private Integer cozId;
+    private String cozName;
 }

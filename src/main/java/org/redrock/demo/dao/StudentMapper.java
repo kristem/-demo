@@ -9,9 +9,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface StudentMapper {
-    @Select("select * from student where stu_id = #{id}")
-    Student findStuById (@Param("id")Integer id);
 
-    @Select("select * from student where stu_name = #{name}")
-    Student findStuByName (@Param("name")String name);
+    String findStuById (Integer id);
+
+    Integer findStuByName (String name);
+
+    boolean  insertStudent(Student student);
+
+    boolean deleteStudent(Integer id);
+
+    boolean updateStudent(Student student);
 }
